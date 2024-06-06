@@ -1,0 +1,100 @@
+#ddev-generated
+
+http:
+  routers:
+    
+    
+    decoupled-drupal-web-80-http:
+      
+      rule: HostRegexp(`decoupled-drupal.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "decoupled-drupal-web-80-http"
+      tls: false
+      entrypoints:
+        - http-80
+    
+    
+    decoupled-drupal-web-8025-http:
+      
+      rule: HostRegexp(`decoupled-drupal.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "decoupled-drupal-web-8025-http"
+      tls: false
+      entrypoints:
+        - http-8025
+    
+    
+    
+    
+    
+    
+    decoupled-drupal-web-80-https:
+      
+      rule: HostRegexp(`decoupled-drupal.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "decoupled-drupal-web-80-https"
+      
+      tls: true
+      
+      entrypoints:
+        - http-443
+    
+    
+    decoupled-drupal-web-8025-https:
+      
+      rule: HostRegexp(`decoupled-drupal.ddev.site`)
+      
+      middlewares:
+        - autodetect
+      service: "decoupled-drupal-web-8025-https"
+      
+      tls: true
+      
+      entrypoints:
+        - http-8026
+    
+    
+
+  # autodetect won't be needed in Traefik 3 https://github.com/traefik/traefik/pull/9546
+  middlewares:
+    autodetect:
+      contentType:
+        autoDetect: false
+
+  services:
+    
+    decoupled-drupal-web-80-http:
+      loadbalancer:
+        servers:
+          - url: http://ddev-decoupled-drupal-web:80
+    
+    decoupled-drupal-web-8025-http:
+      loadbalancer:
+        servers:
+          - url: http://ddev-decoupled-drupal-web:8025
+    
+    decoupled-drupal-web-80-https:
+    
+      loadbalancer:
+        servers:
+          - url: http://ddev-decoupled-drupal-web:80
+    
+    decoupled-drupal-web-8025-https:
+    
+      loadbalancer:
+        servers:
+          - url: http://ddev-decoupled-drupal-web:8025
+    
+
+
+tls:
+  certificates:
+    - certFile: /mnt/ddev-global-cache/traefik/certs/decoupled-drupal.crt
+      keyFile: /mnt/ddev-global-cache/traefik/certs/decoupled-drupal.key
+
