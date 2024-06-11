@@ -24,7 +24,7 @@
 # sites/*/services*.yml
 
 # Ignore paths that contain user-generated content.
-sites/*/files
+/docroot/sites/*/files
 sites/*/private
 
 # Ignore multi-site test environment.
