@@ -1,8 +1,6 @@
 // src/Home.js
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-// import { BrowserRouter as Link } from 'react-router-dom';
-// import SamplePage from './SamplePage2';
 import '../App.css';
 
 function App() {
@@ -31,9 +29,6 @@ function App() {
     <div>
       <h1>{pageData.data.attributes.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: pageData.data.attributes.body.value }} />
-      <div>Following is a sample page: 
-      <a href="/sample-page2">Sample Page</a>
-      </div>
     </div>
 
   );
