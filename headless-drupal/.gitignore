@@ -18,6 +18,7 @@
 /vendor/
 /docroot/core/
 /docroot/modules/contrib/
+/docroot/themes/contrib/
 
 # Ignore configuration files that may contain sensitive information.
 # sites/*/settings*.php

@@ -10,7 +10,6 @@ const Navbar = (props) => {
         </div>
         <ul className="nav-links">
             <li><a href="/">Home</a></li>
-            <li><a href="/blogs">Blogs</a></li>
             <li><a href="/sample-page">Sample Page</a></li>
         </ul>
     </nav>
